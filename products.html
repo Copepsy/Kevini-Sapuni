@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Kevini Sapuni</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Existing Navbar and other sections -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.html">Kevini Sapuni</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+
+          
+            <li class="nav-item">
+                <a class="nav-link" href="products.html">Proizvodi</a>
+            </li> 
+            <li class="nav-item">
+                <a class="nav-link" href="About-us.html">O nama</a>
+            </li>
+           
+            <!-- Social Media Icons -->
+            <a href="https://instagram.com/kevinisapuni" class="navbar-icon" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+
+            <!-- Theme Toggle Button -->
+            <button id="themeToggle" class="btn btn-secondary ml-auto">
+                <i class="fas fa-sun"></i> <!-- Sun icon -->
+                <i class="fas fa-moon" style="display:none;"></i> <!-- Moon icon -->
+            </button>
+        </div>
+    </nav>
+
+
+    <!-- Product Section -->
+    <section class="product-section">
+        <div class="container">
+            <h2>Sapuni</h2>
+            <div class="row product-container">
+                <!-- Product Item 1 -->
+                <div class="col-md-4">
+                    <div class="product-item">
+                        <img src="Neven.png" alt="Product 1">
+                        <h3>Neven</h3>
+                        <p>Sastav: Hladno Ceđeno Maslinovo,Kokosovo,Nevenovo i Bademovo Ulje i Suvi Cvet Nevena</p>
+                        
+                    </div>
+                </div>
+
+                <!-- Product Item 2 -->
+                <div class="col-md-4">
+                    <div class="product-item">
+                        <img src="Lavanda2.png" alt="Product 2">
+                        <h3>Lavanda</h3>
+                        <p>Sastav: Hladno Ceđeno Kokosovo Ulje Šia Puter Bademovo Ulje, Suvi Cvet Lavande I Armatično Ulje Lavande</p>
+                        
+                    </div>
+                </div>
+
+
+              
+              <!-- Product Item 3 -->
+              <div class="col-md-4">
+                  <div class="product-item">
+                      <img src="Glina i Ugalj.png" alt="Product 3">
+                      <h3>Glina I Cvet Crvenog Božura</h3>
+                      <p>Sastav: Hladno Ceđeno Kokosovo Ulje Hladno Ceđeno Maslinovo Ulje Šia Puter Bademovo Ulje Glina I Sušeni Cvet Crvenog Božura</p>
+                      
+                  </div>
+              </div>
+
+              <!-- Product Item 4 -->
+              <div class="col-md-4">
+                  <div class="product-item">
+                      <img src="Cimet Kurkuma.png" alt="Product 4">
+                      <h3>Cimet Kurkuma</h3>
+                      <p>Sastav: Hladno Ceđeno Kokosovo Ulje Hladno Ceđeno Maslinovo Ulje Šia Puter Bademovo Ulje Kurkuma Cimet</p>
+
+                  </div>
+              </div>
+
+
+              <!-- Product Item 5 -->
+              <div class="col-md-4">
+                  <div class="product-item">
+                      <img src="Aktivni Ugalj.png" alt="Product 5">
+                      <h3>Aktivni Ugalj</h3>
+                      <p>Sastav: Hladno Ceđeno Kokosovo Ulje Hladno Ceđeno Maslinovo Ulje Šia Puter Bademovo Ulje Aktivni Ugalj</p>
+
+                  </div>
+              </div>
+              
+            </div>
+        </div>
+    </section>
+
+
+  <!-- Scripts -->
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          const themeToggle = document.getElementById('themeToggle');
+          if (themeToggle) {
+              const iconSun = themeToggle.querySelector('.fa-sun');
+              const iconMoon = themeToggle.querySelector('.fa-moon');
+              const navbar = document.querySelector('.navbar');
+
+              // Function to update the theme based on the current preference
+              function updateTheme() {
+                  const darkThemeEnabled = localStorage.getItem('dark-theme') === 'true';
+                  document.body.classList.toggle('dark-theme', darkThemeEnabled);
+                  if (iconSun && iconMoon) {
+                      iconSun.style.display = darkThemeEnabled ? 'none' : 'block';
+                      iconMoon.style.display = darkThemeEnabled ? 'block' : 'none';
+                  }
+                  if (navbar) {
+                      navbar.classList.toggle('navbar-light', !darkThemeEnabled);
+                      navbar.classList.toggle('bg-light', !darkThemeEnabled);
+                  }
+              }
+
+              // Event listener for the theme toggle button
+              themeToggle.addEventListener('click', function() {
+                  const willBeDark = !document.body.classList.contains('dark-theme');
+                  localStorage.setItem('dark-theme', willBeDark);
+                  updateTheme();
+              });
+
+              // Apply the theme when the page loads based on local storage
+              updateTheme();
+          }
+      });
+  </script>
+  </body>
+  </html>
